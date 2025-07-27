@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elo Boost | Rithiavalo</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 2rem;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-area img {
+      height: 38px;
+    }
+
+    .logo-area span {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: white;
+    }
+
+        nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    nav a i {
+      margin-right: 6px;
+    }
+
+    nav a:hover {
+      color: #e63946;
+      transform: scale(1.05);
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #1a1a1a;
+      padding: 0.5rem 0;
+      border-radius: 0.5rem;
+      min-width: 160px;
+      z-index: 999;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: white;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #2a2a2a;
+      color: #e63946;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    header, footer {
+      background-color: #111;
+      padding: 1rem 2rem;
+    }
+    .boost-form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      background: #111;
+      padding: 2rem;
+    }
+    .boost-box {
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 2rem;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
+    }
+    select, .toggle-switch, .price-box {
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      background: #2c2c2c;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+.price-box {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  font-weight: bold;
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 10px;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255, 75, 43, 0.4);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+
+  /* Genişlik ayarı için eklediklerimiz: */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+    .boost-box h3 {
+      margin-bottom: 1rem;
+    }
+    .order-btn {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      width: 100%;
+      background-color: #e63946;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .extra-options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+    .extra-options input {
+      transform: scale(1.2);
+    }
+
+   .toggle-container {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  width: 100%; /* Eklendi */
+}
+
+
+.toggle-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Eklendi */
+  background-color: #1e1e2f;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  font-size: 16px;
+  width: 100%; /* Değiştirildi */
+  cursor: pointer;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+
+.toggle-label input {
+  display: none;
+}
+
+.slider {
+  min-width: 40px; /* Eklendi */
+  height: 20px;
+  background-color: #444;
+  border-radius: 20px;
+  position: relative;
+  transition: 0.3s;
+}
+
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: #d05aff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.toggle-label input:checked + .slider {
+  background-color: #333;
+}
+
+.toggle-label input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+
+.footer {
+  background-color: #0d0d0d;
+  color: #fff;
+  padding: 40px 20px 10px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+.footer-column h4 {
+  color: #e63946;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-column a {
+  display: block;
+  color: #ccc;
+  font-size: 14px;
+  margin-bottom: 6px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #fff;
+}
+
+.footer-column p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.footer-bottom {
+  border-top: 1px solid #222;
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #999;
+}
+.info-box {
+  margin-top: 10px;
+  background-color: #1c1c1c;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #ccc;
+  display: flex;
+  align-items: start;
+  gap: 8px;
+  line-height: 1.4;
+}
+
+.info-box i {
+  color: #facc15;
+  font-size: 16px;
+  margin-top: 2px;
+}
+@media (max-width: 768px) {
+    .hero-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .hero-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0 10px;
+  }
+  .boost-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .boost-box {
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 90%;
+  }
+select {
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+  }
+  .bilgilendirme-metni {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .price-box,
+  .order-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .toggle-label {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-column {
+    margin: 10px 0;
+  }
+
+nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  .navbar-logo {
+    text-align: center;
+    margin: 10px 0;
+  }
+}
+  </style>
+</head>
+<body>
+<header>
+    <div class="logo-area">
+      <img src="logo.png" alt="Logo" />
+      <span>Rithiavalo</span>
+    </div>
+    <nav>
+      <a href="index.html"><i class="fa-solid fa-house"></i> Anasayfa</a>
+      <div class="dropdown">
+        <a href="#"><i class="fa-solid fa-gamepad"></i> Valorant ▼</a>
+        <div class="dropdown-content">
+          <a href="#">Elo Boost</a>
+          <a href="#">Duo Boost</a>
+          <a href="#">İlk 5 Maç</a>
+          <a href="#">Win Boost</a>
+          <a href="#">Normal Maç</a>
+          <a href="#">LP Boost</a>
+        </div>
+      </div>
+      <a href="https://instagram.com/rithiavalo" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      <a href="https://discord.gg/ydrnnrVQ7Y" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
+    </nav>
+  </header>
+
+  <main>
+    <section style="text-align: center; padding: 2rem 1rem;">
+      <h1>Elo Boost Hizmeti</h1>
+      <p>Rütbeni yükseltmek artık daha kolay! Profesyonel oyuncularımız ile Demir'den Immortal'a kadar hızlı ve güvenli boost hizmeti.</p>
+    </section>
+
+    <section class="boost-form">
+      <div class="boost-box">
+        <h3>Şu anki Lig</h3>
+        <option selected disabled>Seçiniz</option>
+        <select id="current-rank" onchange="calculatePrice()">
+          <option>Demir</option>
+          <option>Bronz</option>
+          <option>Gümüş</option>
+          <option>Altın</option>
+          <option>Platin</option>
+          <option>Elmas</option>
+          <option>Ascendant</option>
+          <option>Immortal</option>
+        </select>
+<div class="info-box">
+  <i class="fas fa-info-circle"></i>
+  Buradaki seçimler, size uygun paketi hızlıca bulmanızı kolaylaştırmak için sunulmuştur. Doğru ürünü daha hızlı seçebilmeniz adına bir ön yönlendirme sağlar.
+</div>
+      </div>
+      
+
+      <div class="boost-box">
+        <h3>İstediğiniz Lig</h3>
+        <option selected disabled>Seçiniz</option>
+        <select id="desired-rank" onchange="calculatePrice()">
+          <option>Demir</option>
+          <option>Bronz</option>
+          <option>Gümüş</option>
+          <option>Altın</option>
+          <option>Platin</option>
+          <option>Elmas</option>
+          <option>Ascendant</option>
+          <option>Immortal</option>
+        </select>
+<div class="info-box">
+  <i class="fas fa-info-circle"></i>
+  Yönlendirileceğiniz satın alma sayfasında bu seçimler otomatik aktarılmaz. Bu yüzden, Shopier üzerinde aynı seçimleri manuel olarak tekrar yapmanız gerekecek.
+</div>
+      </div>
+
+      <div class="boost-box">
+  <h3>Ekstra Seçenekler</h3>
+
+  <div class="toggle-container">
+    <label class="toggle-label">
+      <span>Boost Sonu +1 Win <span class="extra-price">(+29₺)</span></span>
+      <input type="checkbox" id="extraWin" onchange="calculatePrice()">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="toggle-container">
+    <label class="toggle-label">
+      <span>Boost Sırasında Canlı Yayın <span class="extra-price">(+75₺)</span></span>
+      <input type="checkbox" id="extraStream" onchange="calculatePrice()">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="price-box">
+    Toplam Fiyat: <span id="priceValue">149₺</span>
+  </div>
+
+  <button class="order-btn">Sipariş Ver</button>
+</div>
+
+    </section>
+  </main>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <img src="logo.png" alt="Rithiavalo Logo" style="width: 50px; margin-bottom: 10px;">
+      <p>Rithiavalo, sadece rütbe atlattıran değil, aynı zamanda oyuncuları geliştiren bir Valorant koçluk platformudur. ELO boost, aim antrenmanları, oyun içi karar verme (gamesense) ve takım stratejisi üzerine birebir gelişim sunar. Hedefin Immortal mı? Hemen başla!</p>
+    </div>
+    <div class="footer-column">
+      <h4>Bağlantılar</h4>
+      <a href="index.html">Anasayfa</a>
+      <a href="paketler.html">Paketler</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="iletisim.html">İletişim</a>
+      <a href="booster-basvuru.html">Booster Başvuru</a>
+      <a href="kocluk-basvuru.html">Koçluk Başvuru</a>
+    </div>
+    <div class="footer-column">
+      <h4>Boost Servisleri</h4>
+      <a href="#">Elo Boost</a>
+      <a href="#">Duo Boost</a>
+      <a href="#">Win Boost</a>
+      <a href="#">İlk 5 Maç</a>
+    </div>
+    <div class="footer-column">
+      <h4>Koçluk Servisleri</h4>
+      <a href="#">Demirden Immortal'a Koçluk</a>
+      <a href="#">Aylık Koçluk</a>
+      <a href="#">Haftalık Koçluk</a>
+      <a href="#">Tek Seans Koçluk</a>
+    </div>
+    <div class="footer-column">
+      <h4>İletişim</h4>
+      <a href="mailto:rithiavalo@gmail.com"><i class="fa-solid fa-envelope"></i> rithiavalo@gmail.com</a>
+      <a href="https://instagram.com/rithiavalo" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      <a href="https://discord.gg/ydrnnrVQ7Y" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Rithiavalo. Tüm hakları saklıdır.</p>
+  </div>
+</footer>
+<script>
+  const ranks = [
+    "Demir", "Bronz", "Gümüş", "Altın",
+    "Platin", "Elmas", "Ascendant", "Immortal"
+  ];
+
+  const rankPrices = {
+    "Demir-Bronz": 150,
+    "Bronz-Gümüş": 175,
+    "Gümüş-Altın": 200,
+    "Altın-Platin": 250,
+    "Platin-Elmas": 350,
+    "Elmas-Ascendant": 500,
+    "Ascendant-Immortal": 600,
+    "Immortal-Immortal 2": 650,
+    "Immortal 2-Immortal 3": 700
+  };
+
+  function calculatePrice() {
+    const current = document.getElementById("current-rank").value;
+    const desired = document.getElementById("desired-rank").value;
+
+    const currentIndex = ranks.indexOf(current);
+    const desiredIndex = ranks.indexOf(desired);
+
+    if (desiredIndex <= currentIndex) {
+      document.getElementById("priceValue").innerText = "Seçimler geçersiz";
+      return;
+    }
+
+    let total = 0;
+    for (let i = currentIndex; i < desiredIndex; i++) {
+      const key = `${ranks[i]}-${ranks[i + 1]}`;
+      total += rankPrices[key] || 0;
+    }
+
+    // Ekstraları ekle
+    const extraWin = document.getElementById("extraWin")?.checked;
+    const extraStream = document.getElementById("extraStream")?.checked;
+
+    if (extraWin) total += 29;
+    if (extraStream) total += 75;
+
+    document.getElementById("priceValue").innerText = total + "₺";
+  }
+
+  const currentRankSelect = document.getElementById("current-rank");
+  const desiredRankSelect = document.getElementById("desired-rank");
+
+  function updateDesiredRankOptions() {
+    const selectedCurrentRank = currentRankSelect.value;
+    const currentIndex = ranks.indexOf(selectedCurrentRank);
+
+    desiredRankSelect.innerHTML = "";
+
+    for (let i = 0; i < ranks.length; i++) {
+      if (i > currentIndex) {
+        const option = document.createElement("option");
+        option.value = ranks[i];
+        option.textContent = ranks[i];
+        desiredRankSelect.appendChild(option);
+      }
+    }
+
+    if (desiredRankSelect.options.length === 0) {
+      const option = document.createElement("option");
+      option.textContent = "Üst lig yok";
+      option.disabled = true;
+      desiredRankSelect.appendChild(option);
+    }
+
+    calculatePrice(); // Seçim sonrası fiyatı güncelle
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    updateDesiredRankOptions();
+    calculatePrice();
+  });
+
+  currentRankSelect.addEventListener("change", updateDesiredRankOptions);
+  desiredRankSelect.addEventListener("change", calculatePrice);
+</script>
+</body>
+</html>

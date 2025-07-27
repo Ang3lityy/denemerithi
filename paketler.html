@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paketler - Rithiavalo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #111;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 2rem;
+      background-color: #0d0d0d;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+      flex-wrap: wrap;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-area img {
+      height: 38px;
+    }
+
+    .logo-area span {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    nav a i {
+      margin-right: 6px;
+    }
+
+    nav a:hover {
+      color: #e63946;
+      transform: scale(1.05);
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #1a1a1a;
+      padding: 0.5rem 0;
+      border-radius: 0.5rem;
+      min-width: 160px;
+      z-index: 999;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: white;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #2a2a2a;
+      color: #e63946;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .paketler-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+      gap: 1.5rem;
+    }
+
+    .paket {
+      background-color: #1a1a1a;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      width: 280px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .paket:hover {
+      transform: scale(1.05);
+    }
+
+    .paket h3 {
+      color: #e63946;
+      margin-bottom: 0.5rem;
+    }
+
+    .paket p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .paket button {
+      margin-top: 1rem;
+      background-color: #e63946;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .paket button:hover {
+      background-color: #c5303c;
+    }
+
+ .footer {
+  background-color: #0d0d0d;
+  color: #fff;
+  padding: 40px 20px 10px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+.footer-column h4 {
+  color: #e63946;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-column a {
+  display: block;
+  color: #ccc;
+  font-size: 14px;
+  margin-bottom: 6px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #fff;
+}
+
+.footer-column p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.footer-bottom {
+  border-top: 1px solid #222;
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #999;
+   }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-area">
+      <img src="logo.png" alt="Logo"/>
+      <span>Rithiavalo</span>
+    </div>
+    <nav>
+      <a href="index.html"><i class="fa-solid fa-house"></i> Anasayfa</a>
+      <div class="dropdown">
+        <a href="#"><i class="fa-solid fa-gamepad"></i> Valorant ▼</a>
+        <div class="dropdown-content">
+          <a href="#">Elo Boost</a>
+          <a href="#">Duo Boost</a>
+          <a href="#">İlk 5 Maç</a>
+          <a href="#">Win Boost</a>
+          <a href="#">Normal Maç</a>
+          <a href="#">LP Boost</a>
+        </div>
+      </div>
+      <a href="hakkimizda.html"><i class="fa-solid fa-user"></i> Hakkımızda</a>
+      <a href="https://instagram.com/rithiavalo" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      <a href="https://discord.gg/ydrnnrVQ7Y" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
+    </nav>
+  </header>
+
+  <section class="paketler-container">
+    <div class="paket"><h3>INITIATE PACK</h3><p>Demir'den Immortal'a uzanan temel koçluk programı.</p><button onclick="window.location.href='https://www.shopier.com/37863820'">Satın Al</button></div>
+    <div class="paket"><h3>BRONZE RISING PACK</h3><p>Bronz'den Immortal'a uzanan temel koçluk programı.</p><button onclick="window.location.href='https://www.shopier.com/37863851'">Satın Al</button></div>
+    <div class="paket"><h3>STEEL CORE PACK</h3><p>Gümüş'den Immortal'a uzanan temel koçluk programı.</p><button onclick="window.location.href='https://www.shopier.com/37863869'">Satın Al</button></div>
+    <div class="paket"><h3>ASCEND PACK</h3><p>Altın'den Immortal'a uzanan temel koçluk programı.</p><button onclick="window.location.href='https://www.shopier.com/37863889'">Satın Al</button></div>
+    <div class="paket"><h3>ELITE PACK</h3><p>Plat'den Immortal'a uzanan temel koçluk programı.</p><button onclick="window.location.href='https://www.shopier.com/37863908'">Satın Al</button></div>
+    <div class="paket"><h3>INTEL CORE PACK</h3><p>Diamond'den Immortal'a uzanan temel koçluk programı.</p><button onclick="window.location.href='https://www.shopier.com/37863925'">Satın Al</button></div>
+    <div class="paket"><h3>IMMORTAL MINDSET PACK</h3><p>Ascendant'den Immortal'a uzanan temel koçluk programı.</p><button onclick="window.location.href='https://www.shopier.com/37863937'">Satın Al</button></div>
+  </section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <img src="logo.png" alt="Rithiavalo Logo" style="width: 50px; margin-bottom: 10px;">
+      <p>Rithiavalo, sadece rütbe atlattıran değil, aynı zamanda oyuncuları geliştiren bir Valorant koçluk platformudur. ELO boost, aim antrenmanları, oyun içi karar verme (gamesense) ve takım stratejisi üzerine birebir gelişim sunar. Hedefin Immortal mı? Hemen başla!</p>
+    </div>
+    <div class="footer-column">
+      <h4>Bağlantılar</h4>
+      <a href="index.html">Anasayfa</a>
+      <a href="paketler.html">Paketler</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="iletisim.html">İletişim</a>
+      <a href="booster-basvuru.html">Booster Başvuru</a>
+      <a href="kocluk-basvuru.html">Koçluk Başvuru</a>
+    </div>
+    <div class="footer-column">
+      <h4>Boost Servisleri</h4>
+      <a href="#">Elo Boost</a>
+      <a href="#">Duo Boost</a>
+      <a href="#">Win Boost</a>
+      <a href="#">İlk 5 Maç</a>
+    </div>
+    <div class="footer-column">
+      <h4>Koçluk Servisleri</h4>
+      <a href="#">Demirden Immortal'a Koçluk</a>
+      <a href="#">Aylık Koçluk</a>
+      <a href="#">Haftalık Koçluk</a>
+      <a href="#">Tek Seans Koçluk</a>
+    </div>
+    <div class="footer-column">
+      <h4>İletişim</h4>
+      <a href="mailto:rithiavalo@gmail.com"><i class="fa-solid fa-envelope"></i> rithiavalo@gmail.com</a>
+      <a href="https://instagram.com/rithiavalo" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      <a href="https://discord.gg/ydrnnrVQ7Y" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Rithiavalo. Tüm hakları saklıdır.</p>
+  </div>
+</footer>
+
+
+</body>
+</html>
