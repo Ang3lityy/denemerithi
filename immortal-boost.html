@@ -169,69 +169,76 @@
         gap: 0.75rem;
       }
     }
-    
-    .neden-rithiavalo {
-  padding: 40px 20px;
-  background-color: #121212;
-  color: #fff;
-  max-width: 1200px;
-  margin: 0 auto;
+.guven-section {
+  background-color: #0f0f0f;
+  padding: 4rem 1rem;
+  color: white;
+  text-align: center;
 }
 
-.neden-rithiavalo h2 {
-  color: #ff2e2e;
-  font-size: 28px;
-  margin-bottom: 25px;
-  font-weight: bold;
+.guven-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
-.neden-box {
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  margin-bottom: 25px;
-  flex-wrap: nowrap;
-}
-
-.neden-icon {
-  font-size: 24px;
-  color: #ff2e2e;
-  margin-top: 3px;
-  min-width: 30px;
-}
-
-.neden-text h4 {
-  margin: 0 0 5px;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.neden-text p {
-  margin: 0;
+.guven-header p {
+  font-size: 1rem;
   color: #ccc;
-  font-size: 15px;
-  line-height: 1.4;
+  margin-bottom: 2rem;
 }
 
-/* Mobil uyum için */
-@media (max-width: 600px) {
-  .neden-box {
-    flex-direction: row;
-    align-items: flex-start;
-  }
+.guven-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
 
-  .neden-icon {
-    font-size: 20px;
-    min-width: 26px;
-  }
+.guven-box {
+  background-color: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 12px;
+  width: 250px;
+  box-shadow: #ff5555;
+}
 
-  .neden-text h4 {
-    font-size: 17px;
-  }
+.guven-box i {
+  font-size: 2rem;
+  color: #e63946;
+  margin-bottom: 0.5rem;
+}
 
-  .neden-text p {
-    font-size: 14px;
-  }
+.guven-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.yorum-baslik {
+  margin-bottom: 1rem;
+  color: #e63946;
+}
+
+.yorumlar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.yorum-kutu {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  border-radius: 10px;
+  max-width: 300px;
+  color: white;
+  font-size: 0.95rem;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.05);
+}
+
+.yorum-kutu p {
+  font-style: italic;
+  margin-bottom: 0.5rem;
 }
     .footer {
   background-color: #0d0d0d;
@@ -343,28 +350,59 @@
     </form>
   </div>
 
-  <div class="info-section">
-    <h3>Neden Rithiavalo?</h3>
-    <p>Immortal seviyesinde uzmanlaşmış kadromuz sayesinde hem hızlı hem de güvenli hizmet alırsınız. Siparişleriniz anında işleme alınır. Bilgileriniz %100 gizli tutulur.</p>
+<section class="guven-section">
+  <div class="guven-header">
+    <h2>Immortal Boost Hizmeti Neden Güvenilir?</h2>
+    <p>Yüzlerce memnun oyuncu, güvenilir kadro ve %100 başarı garantisi.</p>
   </div>
 
-  <section class="features">
-    <div class="feature">
-      <i class="fa-solid fa-shield-halved"></i>
-      <h3>Gizlilik Garantisi</h3>
-      <p>Tüm bilgileriniz şifreli şekilde korunur.</p>
+  <div class="guven-boxes">
+    <div class="guven-box">
+      <i class="fas fa-lock"></i>
+      <h3>%100 Güvenli Ödeme</h3>
+      <p>Shopier altyapısıyla SSL korumalı ödeme sistemi, güven içinde alışveriş.</p>
     </div>
-    <div class="feature">
-      <i class="fa-solid fa-user-secret"></i>
-      <h3>Booster Kalitesi</h3>
-      <p>Minimum Immortal, genelde Radiant seviyesinde oyuncular görev alır.</p>
+
+    <div class="guven-box">
+      <i class="fas fa-check-circle"></i>
+      <h3>1200+ Başarılı Boost</h3>
+      <p>Immortal hedefli yüzlerce boost işlemi başarıyla tamamlandı.</p>
     </div>
-    <div class="feature">
-      <i class="fa-solid fa-stopwatch"></i>
-      <h3>Hızlı Teslim</h3>
-      <p>Boost işlemi ortalama 1-2 gün içerisinde tamamlanır.</p>
+
+    <div class="guven-box">
+      <i class="fas fa-chess-king"></i>
+      <h3>Radiant Kadro Garantisi</h3>
+      <p>Boost işlemleriniz Radiant seviye oyuncular tarafından yapılır.</p>
     </div>
-  </section>
+
+    <div class="guven-box">
+      <i class="fas fa-user-shield"></i>
+      <h3>Gizlilik ve Güvenlik</h3>
+      <p>Hesabınız güvende, IP koruma ve VPN destekli bağlantılarla oynanır.</p>
+    </div>
+  </div>
+
+  <h3 class="yorum-baslik">OYUNCU YORUMLARI</h3>
+  <div class="yorumlar">
+    <div class="yorum-kutu">
+      <p>"Boost süreci hızlı ve sorunsuzdu, tam vaktinde teslim edildi."</p>
+      <strong>@xKralTR</strong> | Immortal 2 → Immortal 3
+    </div>
+    <div class="yorum-kutu">
+      <p>"Gönül rahatlığıyla tavsiye ediyorum, destek de çok hızlıydı."</p>
+      <strong>@arapsl4yer</strong> | Immortal 1 → Immortal 2
+    </div>
+    <div class="yorum-kutu">
+      <p>"Radiant booster sayesinde oynanışım bile gelişti, sadece boost değil bilgi de aldım."</p>
+      <strong>@kjturret</strong> | Immortal 1 → Immortal 3
+    </div>
+    <div class="yorum-kutu">
+      <p>"Hesabım güvenli şekilde boostlandı, her aşamada bilgilendirildim."</p>
+      <strong>@viperclutch</strong> | Immortal 1 → Immortal 2
+    </div>
+  </div>
+</section>
+
 
 <footer class="footer">
   <div class="footer-container">
