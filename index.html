@@ -111,17 +111,35 @@
       color: #ccc;
     }
 
-    .cta-button {
-      margin-top: 1.5rem;
-      background-color: #e63946;
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-      cursor: pointer;
-      font-weight: 600;
-    }
+.cta-button {
+  margin-top: 1.5rem;
+  background-color: #e63946;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(230, 57, 70, 0.6);
+  background-color: #ff4d5a; /* daha açık kırmızı */
+}
+.hero-content h1 {
+  font-size: 3rem; /* Eskisi 2.5rem ise büyüttük */
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
 
     .features {
 display: flex;
@@ -266,6 +284,23 @@ align-items: center;
     max-width: 90%;
   }
 }
+.floating-logo {
+  width: 150px; /* ihtiyacına göre boyutlandırabilirsin */
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animasyonun tanımı */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
   </style>
 </head>
 <body>
@@ -294,10 +329,11 @@ align-items: center;
   </header>
 
 <section class="hero-section">
+  <img src="logo.png" alt="Logo" class="floating-logo" />
   <div class="hero-content">
     <h1><strong>RithiaValo Koçluk Hizmetleri</strong></h1>
     <p>Immortal’a giden yol burada başlar – %40’a varan indirim!</p>
-    <button class="cta-button" onclick="window.location.href='paketler.html'">Paketleri İncele</button>
+    <button class="cta-button" onclick="window.location.href='paketler.html'">Koçluk Paketlerini İncele</button>
   </div>
 
   <section class="features">
