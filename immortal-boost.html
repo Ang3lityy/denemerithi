@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Immortal Boost - Rithiavalo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* Ortak stiller buraya */
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #111;
+      color: white;
+    }
+    header, footer, .features, .hero-section, .boost-form {
+      padding: 20px;
+    }
+    /* Navbar ve footer burada */
+    /* (Kopyaladığınız stiller buraya yerleştirilecek) */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 2rem;
+    }
+        .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-area img {
+      height: 38px;
+    }
+
+    .logo-area span {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: white;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      transition: transform 0.3s ease;
+    }
+
+    nav a i {
+      margin-right: 6px;
+    }
+
+    nav a:hover {
+      color: #e63946;
+      transform: scale(1.05);
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #1a1a1a;
+      padding: 0.5rem 0;
+      border-radius: 0.5rem;
+      min-width: 160px;
+      z-index: 999;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: white;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #2a2a2a;
+      color: #e63946;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .dropdown-content a {
+    padding: 8px 0;
+  }
+}
+    .boost-container {
+      max-width: 1000px;
+      margin: auto;
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
+    }
+    .boost-container h2 {
+      text-align: center;
+      color: #e63946;
+    }
+    .boost-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .boost-form label {
+      font-weight: bold;
+    }
+    .boost-form select, .boost-form input, .boost-form button {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background: #333;
+      color: white;
+    }
+    .boost-form button {
+      background: #e63946;
+      cursor: pointer;
+    }
+    .info-section {
+      margin-top: 40px;
+    }
+    .info-section h3 {
+      color: #e63946;
+    }
+    .info-section p {
+      color: #ccc;
+    }
+    @media (max-width: 768px) {
+      .boost-form {
+        gap: 0.75rem;
+      }
+    }
+    
+    .neden-rithiavalo {
+  padding: 40px 20px;
+  background-color: #121212;
+  color: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.neden-rithiavalo h2 {
+  color: #ff2e2e;
+  font-size: 28px;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.neden-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: nowrap;
+}
+
+.neden-icon {
+  font-size: 24px;
+  color: #ff2e2e;
+  margin-top: 3px;
+  min-width: 30px;
+}
+
+.neden-text h4 {
+  margin: 0 0 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.neden-text p {
+  margin: 0;
+  color: #ccc;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* Mobil uyum için */
+@media (max-width: 600px) {
+  .neden-box {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .neden-icon {
+    font-size: 20px;
+    min-width: 26px;
+  }
+
+  .neden-text h4 {
+    font-size: 17px;
+  }
+
+  .neden-text p {
+    font-size: 14px;
+  }
+}
+    .footer {
+  background-color: #0d0d0d;
+  color: #fff;
+  padding: 40px 20px 10px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+  min-width: 180px;
+}
+
+.footer-column h4 {
+  color: #e63946;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.footer-column a {
+  display: block;
+  color: #ccc;
+  font-size: 14px;
+  margin-bottom: 6px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #fff;
+}
+
+.footer-column p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.footer-bottom {
+  border-top: 1px solid #222;
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 15px;
+  font-size: 13px;
+  color: #999;
+}
+  </style>
+</head>
+<body>
+<header>
+<div class="logo-area">
+  <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+    <img src="logo.png" alt="Logo" />
+    <span>RithiaValo</span>
+  </a>
+</div>
+    <nav>
+      <a href="index.html"><i class="fa-solid fa-house"></i> Anasayfa</a>
+      <div class="dropdown">
+        <a href="#"><i class="fa-solid fa-gamepad"></i> Valorant ▼</a>
+        <div class="dropdown-content">
+          <a href="elo-boost.html">Elo Boost</a>
+          <a href="#">İlk 5 Maç</a>
+          <a href="#">Win Boost</a>
+          <a href="immortal-boost.html">Immortal Boost</a>
+        </div>
+      </div>
+            <a href="hakkimizda.html"><i class="fa-solid fa-user"></i> Hakkımızda</a>
+      <a href="https://instagram.com/rithiavalo" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      <a href="https://discord.gg/ydrnnrVQ7Y" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
+    </nav>
+  </header>
+      <section style="text-align: center; padding: 2rem 1rem;">
+      <h1>Immortal Boost Hizmeti</h1>
+      <p>Rütbeni profesyonel oyuncular ile garantili şekilde yükselt!</p>
+        <div class="info-box">
+  <i class="fas fa-exclamation-circle"></i>
+  Lütfen unutmayın: Booster ekibimiz, tıpkı sizin gibi gerçek oyunculardan oluşuyor.
+  Bazen yoğunluk, maç süresi ya da teknik durumlara bağlı olarak küçük gecikmeler yaşanabilir bu durumda anında yaşanan sorun sizlere bildirilir.
+   Her sipariş, maksimum özenle ve en kısa sürede başlatılır. Anlayışınız için teşekkür ederiz.
+</div>
+    </section>
+
+  <div class="boost-container">
+    <h2>Immortal Boost Siparişi</h2>
+    <form class="boost-form">
+<label>Mevcut Rütbeniz:</label>
+<select id="mevcutRutbe">
+  <option value="">Seçiniz</option>
+  <option value="1">Immortal 1</option>
+  <option value="2">Immortal 2</option>
+</select>
+
+<label>Hedef Rütbe:</label>
+<select id="hedefRutbe">
+  <option value="">Seçiniz</option>
+  <option value="2">Immortal 2</option>
+  <option value="3">Immortal 3</option>
+</select>
+      <button id="siparisVer" type="submit">Sipariş Ver</button>
+    </form>
+  </div>
+
+  <div class="info-section">
+    <h3>Neden Rithiavalo?</h3>
+    <p>Immortal seviyesinde uzmanlaşmış kadromuz sayesinde hem hızlı hem de güvenli hizmet alırsınız. Siparişleriniz anında işleme alınır. Bilgileriniz %100 gizli tutulur.</p>
+  </div>
+
+  <section class="features">
+    <div class="feature">
+      <i class="fa-solid fa-shield-halved"></i>
+      <h3>Gizlilik Garantisi</h3>
+      <p>Tüm bilgileriniz şifreli şekilde korunur.</p>
+    </div>
+    <div class="feature">
+      <i class="fa-solid fa-user-secret"></i>
+      <h3>Booster Kalitesi</h3>
+      <p>Minimum Immortal, genelde Radiant seviyesinde oyuncular görev alır.</p>
+    </div>
+    <div class="feature">
+      <i class="fa-solid fa-stopwatch"></i>
+      <h3>Hızlı Teslim</h3>
+      <p>Boost işlemi ortalama 1-2 gün içerisinde tamamlanır.</p>
+    </div>
+  </section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <img src="logo.png" alt="Rithiavalo Logo" style="width: 50px; margin-bottom: 10px;">
+      <p>Rithiavalo, sadece rütbe atlattıran değil, aynı zamanda oyuncuları geliştiren bir Valorant koçluk platformudur. ELO boost, aim antrenmanları, oyun içi karar verme (gamesense) ve takım stratejisi üzerine birebir gelişim sunar. Hedefin Immortal mı? Hemen başla!</p>
+    </div>
+    <div class="footer-column">
+      <h4>Bağlantılar</h4>
+      <a href="index.html">Anasayfa</a>
+      <a href="paketler.html">Paketler</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="booster-basvuru.html">Booster Başvuru</a>
+      <a href="kocluk-basvuru.html">Koçluk Başvuru</a>
+    </div>
+    <div class="footer-column">
+      <h4>Boost Servisleri</h4>
+      <a href="elo-boost.html ">Elo Boost</a>
+      <a href="#">Win Boost</a>
+      <a href="#">İlk 5 Maç</a>
+      <a href="immortal-boost.html">Immortal Boost</a>
+    </div>
+    <div class="footer-column">
+      <h4>Koçluk Servisleri</h4>
+      <a href="paketler.html">Demirden Immortal'a Koçluk</a>
+      <a href="#">Aylık Koçluk</a>
+      <a href="#">Haftalık Koçluk</a>
+      <a href="#">Tek Seans Koçluk</a>
+    </div>
+    <div class="footer-column">
+      <h4>İletişim</h4>
+      <a href="mailto:rithiavalo@gmail.com"><i class="fa-solid fa-envelope"></i> rithiavalo@gmail.com</a>
+      <a href="https://instagram.com/rithiavalo" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      <a href="https://discord.gg/ydrnnrVQ7Y" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Rithiavalo. Tüm hakları saklıdır.</p>
+  </div>
+</footer>
+<script>
+  const mevcutRutbeSelect = document.getElementById("mevcutRutbe");
+  const hedefRutbeSelect = document.getElementById("hedefRutbe");
+  const siparisBtn = document.getElementById("siparisVer");
+
+  mevcutRutbeSelect.addEventListener("change", () => {
+    const mevcut = mevcutRutbeSelect.value;
+
+    hedefRutbeSelect.innerHTML = "";
+
+    if (mevcut === "2") {
+      // Immortal 2 seçildiyse → hedef 3, disabled
+      const option = document.createElement("option");
+      option.value = "3";
+      option.textContent = "Immortal 3";
+      hedefRutbeSelect.appendChild(option);
+      hedefRutbeSelect.disabled = true;
+    } else if (mevcut === "1") {
+      // Immortal 1 → kullanıcı seçebilsin
+      const option1 = document.createElement("option");
+      option1.value = "2";
+      option1.textContent = "Immortal 2";
+      const option2 = document.createElement("option");
+      option2.value = "3";
+      option2.textContent = "Immortal 3";
+      hedefRutbeSelect.appendChild(option1);
+      hedefRutbeSelect.appendChild(option2);
+      hedefRutbeSelect.disabled = false;
+    } else {
+      hedefRutbeSelect.innerHTML = '<option value="">Seçiniz</option>';
+      hedefRutbeSelect.disabled = false;
+    }
+  });
+
+  siparisBtn.addEventListener("click", () => {
+    const mevcut = mevcutRutbeSelect.value;
+    const hedef = hedefRutbeSelect.value;
+
+    if (mevcut === "1" && hedef === "2") {
+      window.open("https://www.shopier.com/37007687", "_blank");
+    } else if (mevcut === "1" && hedef === "3") {
+  window.open("https://www.shopier.com/37007733", "_blank");
+  setTimeout(() => {
+    window.open("https://www.shopier.com/37007687", "_blank");
+  }, 100); // 100ms gecikmeli ikinci sekme
+} else if (mevcut === "2" && hedef === "3") {
+      window.open("https://www.shopier.com/37007733", "_blank");
+    } else {
+      alert("Lütfen geçerli bir seçim yapınız.");
+    }
+  });
+</script>
+</body>
+</html>
