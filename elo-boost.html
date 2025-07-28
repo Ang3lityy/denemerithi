@@ -2,17 +2,16 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RithiaValo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Elo Boost | Rithiavalo</title>
+  <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #111;
+      background-color: #0d0d0d;
       color: white;
     }
 
@@ -20,9 +19,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.5rem 2rem;
-      background-color: #0d0d0d;
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+      padding: 0.75rem 2rem;
     }
 
     .logo-area {
@@ -44,7 +41,8 @@
     nav {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -57,13 +55,13 @@
       transition: transform 0.3s ease;
     }
 
-    nav a:hover {
-      color: #e63946;
-      transform: scale(1.1);
-    }
-
     nav a i {
       margin-right: 6px;
+    }
+
+    nav a:hover {
+      color: #e63946;
+      transform: scale(1.05);
     }
 
     .dropdown {
@@ -86,102 +84,152 @@
       display: block;
       padding: 0.5rem 1rem;
       color: white;
+      text-decoration: none;
     }
 
     .dropdown-content a:hover {
-      background-color: #2c2c2c;
+      background-color: #2a2a2a;
+      color: #e63946;
     }
 
     .dropdown:hover .dropdown-content {
       display: block;
     }
-
-    main {
-      text-align: center;
-      padding: 4rem 2rem;
+    header, footer {
+      background-color: #111;
+      padding: 1rem 2rem;
     }
+    .boost-form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      background: #111;
+      padding: 2rem;
+    }
+    .boost-box {
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 2rem;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
+    }
+    select, .toggle-switch, .price-box {
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      background: #2c2c2c;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+.price-box {
+  background-color: #2b2b2b;         /* Daha koyu ama göz yormayan zemin */
+  color: #ff3c3c;                    /* Uyumlu kırmızı ton */
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 10px;
+  border: 1px solid #ff3c3c;
+  transition: background-color 0.3s, transform 0.2s;
+  font-size: 16px;
+  text-align: center;
+   width: 80%;
+}
 
-    main h1 {
-      font-size: 2.25rem;
+.price-box:hover {
+  background-color: #3a3a3a;
+  transform: scale(1.03);
+  cursor: default;
+}
+
+    .boost-box h3 {
       margin-bottom: 1rem;
     }
-
-    main p {
+    .order-btn {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      width: 100%;
+      background-color: #e63946;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
       font-size: 1rem;
-      color: #ccc;
+      cursor: pointer;
+    }
+    .extra-options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-top: 1rem;
+    }
+    .extra-options input {
+      transform: scale(1.2);
     }
 
-.cta-button {
-  margin-top: 1.5rem;
-  background-color: #e63946;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1.1rem;
-  padding: 1rem 2rem;
+   .toggle-container {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  width: 100%; /* Eklendi */
+}
+
+
+.toggle-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Eklendi */
+  background-color: #1e1e2f;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  font-size: 16px;
+  width: 100%; /* Değiştirildi */
   cursor: pointer;
-  font-weight: 600;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(230, 57, 70, 0.6);
-  background-color: #ff4d5a; /* daha açık kırmızı */
-}
-.hero-content h1 {
-  font-size: 3rem; /* Eskisi 2.5rem ise büyüttük */
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.hero-content p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
+  gap: 1rem;
+  box-sizing: border-box;
 }
 
 
-    .features {
-display: flex;
-justify-content: space-around;
-padding: 40px;
-background: #111;
-color: #fff;
-flex-wrap: wrap;
-gap: 30px;
-}
-.feature {
-background: #1a1a1a;
-border-radius: 20px;
-padding: 30px;
-max-width: 300px;
-text-align: center;
-box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
-transition: transform 0.3s ease;
-}
-.feature:hover {
-transform: translateY(-5px);
-}
-.feature i {
-font-size: 40px;
-color: #d31c1c;
-margin-bottom: 15px;
-}
-.feature h3 {
-font-size: 20px;
-margin-bottom: 10px;
-}
-.feature p {
-font-size: 15px;
-color: #ccc;
+.toggle-label input {
+  display: none;
 }
 
-@media (max-width: 768px) {
-.features {
-flex-direction: column;
-align-items: center;
+.slider {
+  min-width: 40px; /* Eklendi */
+  height: 20px;
+  background-color: #444;
+  border-radius: 20px;
+  position: relative;
+  transition: 0.3s;
 }
+
+
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: #d05aff;
+  border-radius: 50%;
+  transition: 0.3s;
 }
+
+.toggle-label input:checked + .slider {
+  background-color: #333;
+}
+
+.toggle-label input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
 
 .footer {
   background-color: #0d0d0d;
@@ -236,76 +284,220 @@ align-items: center;
   font-size: 13px;
   color: #999;
 }
-.hero-section {
-  background: url("img/arkaplan.png") center/cover no-repeat;
-  padding: 100px 20px;
-  color: white;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.65); /* daha koyu efekti buradan alıyor */
-  z-index: 0;
-}
-
-.hero-section * {
-  position: relative;
-  z-index: 1;
-}
-
-.features {
+.info-box {
+  margin-top: 10px;
+  background-color: #1c1c1c;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #ccc;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 60px;
-  background: none !important; /* varsa koyu arkaplanı iptal eder */
+  align-items: start;
+  gap: 8px;
+  line-height: 1.4;
 }
 
-.feature {
-  background-color: rgba(0, 0, 0, 0.6); /* şeffaf kutular */
-  border-radius: 16px;
-  padding: 24px;
-  max-width: 300px;
-  flex: 1;
+.info-box i {
+  color: #facc15;
+  font-size: 16px;
+  margin-top: 2px;
 }
 @media (max-width: 768px) {
-  .features {
+    .hero-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .hero-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0 10px;
+  }
+  .boost-form {
     flex-direction: column;
     align-items: center;
   }
 
-  .feature {
-    max-width: 90%;
+  .boost-box {
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 90%;
+  }
+select {
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+  }
+  .bilgilendirme-metni {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .price-box,
+  .order-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .toggle-label {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-column {
+    margin: 10px 0;
+  }
+
+nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+
+  .navbar-logo {
+    text-align: center;
+    margin: 10px 0;
   }
 }
-.floating-logo {
-  width: 150px; /* ihtiyacına göre boyutlandırabilirsin */
-  animation: float 3s ease-in-out infinite;
+.start-time-box {
+  background: #1a1a1a;
+  border: 1px solid #ff4e50;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(255, 78, 80, 0.2);
 }
 
-/* Animasyonun tanımı */
-@keyframes float {
-  0% {
-    transform: translateY(0px);
+.start-time-box h3 {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.start-time {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff4e50;
+  text-shadow: 0 0 6px rgba(255, 78, 80, 0.4);
+}
+.boost-box.start-box {
+  padding: 12px 16px;
+  max-width: 260px;
+  font-size: 13px;
+  background-color: #1b1b1b;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+  border: 1px solid #ff3c3c;
+}
+
+.boost-box.start-box h3 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.boost-box.start-box .highlight {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff3c3c;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.guven-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
   }
-  50% {
-    transform: translateY(-10px);
+
+  .guven-rozet {
+    background-color: #1a1a1a;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
   }
-  100% {
-    transform: translateY(0px);
+
+  .guven-rozet:hover {
+    transform: translateY(-5px);
+  }
+
+  .guven-rozet i {
+    font-size: 36px;
+    color: #e63946;
+    margin-bottom: 1rem;
+  }
+
+  .guven-rozet h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: #fff;
+  }
+
+  .guven-rozet p {
+    color: #ccc;
+    font-size: 0.95rem;
+  }
+@media (max-width: 992px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr); /* tablet için 2x2 */
+  }
+}
+
+@media (max-width: 600px) {
+  .trust-grid {
+    grid-template-columns: 1fr; /* mobil için alt alta */
+  }
+}
+.yorumlar-container {
+  display: flex;
+  flex-wrap: wrap; /* Ekrana sığmayanlar alt satıra iner */
+  gap: 1.5rem;
+  justify-content: center; /* Ortalanmış görünüm */
+  margin-top: 2rem;
+}
+
+.yorum-kart {
+  flex: 1 1 250px; /* Büyüyebilir ama minimum 250px */
+  max-width: 300px;
+  background-color: #1e1e1e;
+  color: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.yorum-kart span {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #ccc;
+}
+@media screen and (max-width: 600px) {
+  .yorumlar-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .yorum-kart {
+    width: 90%;
   }
 }
   </style>
 </head>
 <body>
-
-  <header>
+<header>
 <div class="logo-area">
   <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
     <img src="logo.png" alt="Logo" />
@@ -313,6 +505,7 @@ align-items: center;
   </a>
 </div>
     <nav>
+      <a href="index.html"><i class="fa-solid fa-house"></i> Anasayfa</a>
       <div class="dropdown">
         <a href="#"><i class="fa-solid fa-gamepad"></i> Valorant ▼</a>
         <div class="dropdown-content">
@@ -322,39 +515,178 @@ align-items: center;
           <a href="immortal-boost.html">Immortal Boost</a>
         </div>
       </div>
-      <a href="hakkimizda.html"><i class="fa-solid fa-user"></i> Hakkımızda</a>
+            <a href="hakkimizda.html"><i class="fa-solid fa-user"></i> Hakkımızda</a>
       <a href="https://instagram.com/rithiavalo" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
       <a href="https://discord.gg/ydrnnrVQ7Y" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
     </nav>
   </header>
 
-<section class="hero-section">
-  <img src="logo.png" alt="Logo" class="floating-logo" />
-  <div class="hero-content">
-    <h1><strong>RithiaValo Koçluk Hizmetleri</strong></h1>
-    <p>Immortal’a giden yol burada başlar – %40’a varan indirim!</p>
-    <button class="cta-button" onclick="window.location.href='paketler.html'">Koçluk Paketlerini İncele</button>
+  <main>
+    <section style="text-align: center; padding: 2rem 1rem;">
+      <h1>Elo Boost Hizmeti</h1>
+      <p>Rütbeni yükseltmek artık daha kolay! Profesyonel oyuncularımız ile Demir'den Immortal'a kadar hızlı ve güvenli boost hizmeti.</p>
+        <div class="info-box">
+  <i class="fas fa-exclamation-circle"></i>
+  Lütfen unutmayın: Booster ekibimiz, tıpkı sizin gibi gerçek oyunculardan oluşuyor.
+  Bazen yoğunluk, maç süresi ya da teknik durumlara bağlı olarak küçük gecikmeler yaşanabilir bu durumda anında yaşanan sorun sizlere bildirilir.
+   Her sipariş, maksimum özenle ve en kısa sürede başlatılır. Anlayışınız için teşekkür ederiz.
+</div>
+    </section>
+
+    <section class="boost-form">
+      <div class="boost-box">
+        <h3>Şu anki Lig</h3>
+        <option selected disabled>Seçiniz</option>
+        <select id="current-rank" onchange="calculatePrice()">
+          <option>Demir</option>
+          <option>Bronz</option>
+          <option>Gümüş</option>
+          <option>Altın</option>
+          <option>Platin</option>
+          <option>Elmas</option>
+          <option>Ascendant</option>
+        </select>
+<div class="info-box">
+  <i class="fas fa-info-circle"></i>
+  Buradaki seçimler, size uygun paketi hızlıca bulmanızı kolaylaştırmak için sunulmuştur. Doğru ürünü daha hızlı seçebilmeniz adına bir ön yönlendirme sağlar.
+</div>
+      </div>
+      
+
+      <div class="boost-box">
+        <h3>İstediğiniz Lig</h3>
+        <option selected disabled>Seçiniz</option>
+        <select id="desired-rank" onchange="calculatePrice()">
+          <option>Demir</option>
+          <option>Bronz</option>
+          <option>Gümüş</option>
+          <option>Altın</option>
+          <option>Platin</option>
+          <option>Elmas</option>
+          <option>Ascendant</option>
+          <option>Immortal</option>
+        </select>
+<div class="info-box">
+  <i class="fas fa-info-circle"></i>
+  Yönlendirileceğiniz satın alma sayfasında bu seçimler otomatik aktarılmaz. Bu yüzden, Shopier üzerinde aynı seçimleri manuel olarak tekrar yapmanız gerekecek.
+</div>
+
+      </div>
+      <div class="boost-box">
+<div class="boost-box start-box">
+  <h3><i class="fas fa-clock"></i> Başlangıç Süresi:</h3>
+  <div class="highlight">HEMEN</div>
+</div>
+<p id="boostDuration" style="margin-top: 10px; font-size: 15px; color: #ccc;">
+  Tahmini boost süresi: -
+</p>
+
+
+
+<div class="info-box">
+  <i class="fas fa-info-circle"></i>
+  Eğer 2 veya daha fazla lig atlamak istiyorsanız, “Yükselmeye Başla” butonuna bastıktan sonra sizi birden fazla Shopier ilanına yönlendireceğiz. Yönlendirildiğinz sayfa sepete ekle diyerekten topluca ödeme yapabilirsiniz.
+</div>
+
+</div>
+
+
+      <div class="boost-box">
+  <h3>Ekstra Seçenekler</h3>
+
+  <div class="toggle-container">
+    <label class="toggle-label">
+      <span>Boost Sonu +1 Win <span class="extra-price">(+29₺)</span></span>
+      <input type="checkbox" id="extraWin" onchange="calculatePrice()">
+      <span class="slider"></span>
+    </label>
+  </div>
+    <div class="toggle-container">
+    <label class="toggle-label">
+      <span>Duo Boost <span class="extra-price">( 2X ₺)</span></span>
+      <input type="checkbox" id="DuoBoost" onchange="calculatePrice()">
+      <span class="slider"></span>
+    </label>
   </div>
 
-  <section class="features">
-    <div class="feature">
-      <i class="fa-solid fa-trophy"></i>
-      <h3>Profesyonel Kadro</h3>
-      <p>Tüm Rithiavalo hizmetleri, Radiant & Pro oyuncular tarafından profesyonelce sağlanır.</p>
-    </div>
-    <div class="feature">
-      <i class="fa-solid fa-wallet"></i>
-      <h3>Uygun Fiyat</h3>
-      <p>Bütçene uygun, maksimum performanslı koçluk ve boost hizmetleri sunuyoruz.</p>
-    </div>
-    <div class="feature">
-      <i class="fa-solid fa-rocket"></i>
-      <h3>Hızlı Teslimat</h3>
-      <p>Discord ve Instagram üzerinden planlanan seanslar hızlıca başlar ve zamanında tamamlanır.</p>
-    </div>
-  </section>
-</section>
+  <div class="toggle-container">
+    <label class="toggle-label">
+      <span>Canlı Yayın <span class="extra-price">(+75₺)</span></span>
+      <input type="checkbox" id="extraStream" onchange="calculatePrice()">
+      <span class="slider"></span>
+    </label>
+  </div>
 
+  <div class="price-box">
+    Toplam Fiyat: <span id="priceValue">149₺</span>
+  </div>
+
+  <button class="order-btn">Yükselmeye Başla</button>
+</div>
+<section style="text-align: center; padding: 3rem 1rem; background-color: #111; border-radius: 12px; margin-top: 4rem;">
+  <h2 style="color: #e63946; font-size: 2rem; margin-bottom: 1rem;">Hâlâ Kararsız mısın?</h2>
+  <p style="color: #ccc; font-size: 1rem; margin-bottom: 1.5rem;">
+    Hangi boost türünün senin için en uygun olduğuna karar veremiyorsan, bizimle hemen iletişime geç! Hesabına en güvenli ve hızlı yükselişi birlikte belirleyelim.
+  </p>
+  <a href="https://www.instagram.com/direct/t/17842363329525749"
+     style="background-color: #e63946; padding: 12px 24px; border-radius: 8px; color: white; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">
+    Bize Ulaş
+  </a>
+</section>
+<div class="rozet-container">
+<section style="padding: 4rem 2rem; background-color: #111; color: #fff; text-align: center;">
+  <h2 style="color: #e63946; margin-bottom: 2rem;">Boost Hizmetimize Neden Güvenmelisin?</h2>
+
+  <div class="guven-wrapper">
+    <!-- Güvenli Ödeme -->
+    <div class="guven-rozet">
+      <i class="fas fa-shield-alt"></i>
+      <h4>%100 Güvenli Ödeme</h4>
+      <p>Shopier altyapısı ile korumalı alışveriş.</p>
+    </div>
+
+    <!-- Tamamlanmış Sipariş -->
+    <div class="guven-rozet">
+      <i class="fas fa-check-circle"></i>
+      <h4>1200+ Tamamlanmış Sipariş</h4>
+      <p>Müşteri memnuniyeti ile tamamlanan yüzlerce sipariş.</p>
+    </div>
+
+    <!-- Profesyonel Booster Ekibi -->
+    <div class="guven-rozet">
+      <i class="fas fa-user-shield"></i>
+      <h4>Profesyonel Booster Ekibi</h4>
+      <p>Her biri yüksek ELO derecelerinde oyuncular.</p>
+    </div>
+
+    <!-- Gizlilik Garantisi -->
+    <div class="guven-rozet">
+      <i class="fas fa-user-secret"></i>
+      <h4>Gizlilik Garantisi</h4>
+      <p>Hesabınıza asla zarar gelmez, tüm bilgiler gizli tutulur.</p>
+    </div>
+  </div>
+</section>
+<div class="yorumlar-container">
+  <div class="yorum-kart">
+    <p>Boost süreci hızlı ve güvenliydi. Canlı yayın seçeneği çok iyiydi!</p>
+    <span><strong>@airfpsz</strong> | Plat 2 → Asc 1</span>
+  </div>
+  <div class="yorum-kart">
+    <p>“Hesabımda hiçbir sorun yaşanmadı. Gerçekten profesyonel bir ekip.”</p>
+    <span><strong>@KaanVLT</strong> | Gold 3 → Diamond 1</span>
+  </div>
+  <div class="yorum-kart">
+    <p>“Shopier ile ödeme yapınca içim daha rahat etti. Tavsiye ederim.”</p>
+    <span><strong>@yumurtlusucurta</strong> | Bronze 2 → Silver 3</span>
+  </div>
+  <div class="yorum-kart">
+    <p>“İlk defa boost aldım ve pişman değilim. Teşekkürler Rithiavalo.”</p>
+    <span><strong>@Frozen</strong> | Iron 3 → Gold 1</span>
+  </div>
+</div>
+    </section>
+  </main>
 
 <footer class="footer">
   <div class="footer-container">
@@ -395,7 +727,116 @@ align-items: center;
     <p>&copy; 2025 Rithiavalo. Tüm hakları saklıdır.</p>
   </div>
 </footer>
+<script>
+const ranks = [
+  "Demir", "Bronz", "Gümüş", "Altın",
+  "Platin", "Elmas", "Ascendant", "Immortal"
+];
 
+const rankPrices = {
+  "Demir-Bronz": 150,
+  "Bronz-Gümüş": 175,
+  "Gümüş-Altın": 200,
+  "Altın-Platin": 250,
+  "Platin-Elmas": 350,
+  "Elmas-Ascendant": 500,
+  "Ascendant-Immortal": 600,
+  "Immortal-Immortal 2": 650,
+  "Immortal 2-Immortal 3": 700
+};
 
+function calculatePrice() {
+  const current = document.getElementById("current-rank").value;
+  const desired = document.getElementById("desired-rank").value;
+
+  const currentIndex = ranks.indexOf(current);
+  const desiredIndex = ranks.indexOf(desired);
+
+  if (desiredIndex <= currentIndex) {
+    document.getElementById("priceValue").innerText = "Seçimler geçersiz";
+    return;
+  }
+
+  let total = 0;
+  for (let i = currentIndex; i < desiredIndex; i++) {
+    const key = `${ranks[i]}-${ranks[i + 1]}`;
+    total += rankPrices[key] || 0;
+  }
+
+  // Ekstra seçenekler
+  const extraWin = document.getElementById("extraWin")?.checked;
+  const extraStream = document.getElementById("extraStream")?.checked;
+  const duoBoost = document.getElementById("DuoBoost")?.checked;
+
+  if (extraWin) total += 29;
+  if (extraStream) total += 75;
+
+  // Duo Boost aktifse fiyatı 2 katına çıkar
+  if (duoBoost) total *= 2;
+
+  document.getElementById("priceValue").innerText = total + "₺";
+  updateBoostDuration();
+}
+
+const currentRankSelect = document.getElementById("current-rank");
+const desiredRankSelect = document.getElementById("desired-rank");
+
+function updateDesiredRankOptions() {
+  const selectedCurrentRank = currentRankSelect.value;
+  const currentIndex = ranks.indexOf(selectedCurrentRank);
+
+  desiredRankSelect.innerHTML = "";
+
+  for (let i = 0; i < ranks.length; i++) {
+    if (i > currentIndex) {
+      const option = document.createElement("option");
+      option.value = ranks[i];
+      option.textContent = ranks[i];
+      desiredRankSelect.appendChild(option);
+    }
+  }
+
+  if (desiredRankSelect.options.length === 0) {
+    const option = document.createElement("option");
+    option.textContent = "Üst lig yok";
+    option.disabled = true;
+    desiredRankSelect.appendChild(option);
+  }
+
+  calculatePrice(); // Güncelle
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  updateDesiredRankOptions();
+  calculatePrice();
+});
+
+currentRankSelect.addEventListener("change", updateDesiredRankOptions);
+desiredRankSelect.addEventListener("change", calculatePrice);
+function updateBoostDuration() {
+  const desired = document.getElementById("desired-rank").value;
+  const durationElement = document.getElementById("boostDuration");
+
+  let durationText = "Tahmini boost süresi: ";
+
+  if (desired === "Immortal") {
+    durationText += "5-7 gün";
+  } else if (desired === "Ascendant") {
+    durationText += "4-6 gün";
+  } else if (desired === "Elmas") {
+    durationText += "3-5 gün";
+  } else if (desired === "Platin") {
+    durationText += "2-3 gün";
+  } else if (desired === "Altın") {
+    durationText += "1-2 gün";
+  } else if (desired === "Gümüş" || desired === "Bronz" || desired === "Demir") {
+    durationText += "1 gün";
+  } else {
+    durationText += "-";
+  }
+
+  durationElement.innerText = durationText;
+}
+</script>
 </body>
 </html>
