@@ -7,6 +7,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- HEAD kısmına ekle -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+  
   <style>
     body {
       margin: 0;
@@ -199,25 +203,121 @@
   font-size: 13px;
   color: #999;
    }
+   
+   .paket {
+  width: 100%;
+  max-width: 280px;
+}
+.paket:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(230, 57, 70, 0.3);
+}
+.paketler-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.paket {
+  background-color: #1a1a1a;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  flex: 1 1 280px;
+  max-width: 320px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .paket {
+    padding: 1rem;
+  }
+}
+.popup-container {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.75);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-box {
+  background-color: #111;
+  color: #eee;
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 0 20px #ff5555;
+}
+
+.popup-box h3 {
+  color: #ff5555;
+  margin-bottom: 0.5rem;
+}
+
+.popup-box ul {
+  margin: 1rem 0;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.popup-buttons button {
+  padding: 0.5rem 1rem;
+  background-color: #ff5555;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.popup-buttons button#cancelBtn {
+  background-color: #444;
+}
+.tahmini-sure {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #ccc;
+  font-style: italic;
+}
   </style>
 </head>
 <body>
   <header>
-    <div class="logo-area">
-      <img src="logo.png" alt="Logo"/>
-      <span>Rithiavalo</span>
-    </div>
+<div class="logo-area">
+  <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+    <img src="logo.png" alt="Logo" />
+    <span>RithiaValo</span>
+  </a>
+</div>
     <nav>
       <a href="index.html"><i class="fa-solid fa-house"></i> Anasayfa</a>
       <div class="dropdown">
         <a href="#"><i class="fa-solid fa-gamepad"></i> Valorant ▼</a>
         <div class="dropdown-content">
-          <a href="#">Elo Boost</a>
-          <a href="#">Duo Boost</a>
+          <a href="elo-boost.html">Elo Boost</a>
           <a href="#">İlk 5 Maç</a>
           <a href="#">Win Boost</a>
-          <a href="#">Normal Maç</a>
-          <a href="#">LP Boost</a>
+          <a href="immortal-boost.html">Immortal Boost</a>
         </div>
       </div>
       <a href="hakkimizda.html"><i class="fa-solid fa-user"></i> Hakkımızda</a>
@@ -225,16 +325,177 @@
       <a href="https://discord.gg/ydrnnrVQ7Y" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
     </nav>
   </header>
+  
+  <section style="text-align: center; padding-top: 2rem;">
+  <h1 style="color: #e63946;">Koçluk Paketleri</h1>
+  <p style="color: #ccc; max-width: 700px; margin: auto;">
+    Oyunculuğunu geliştirmek ve daha üst seviyelere çıkmak için uzmanlarımız tarafından hazırlanan koçluk paketlerini keşfet.
+  </p>
+  
+</section>
+
 
   <section class="paketler-container">
-    <div class="paket"><h3>INITIATE PACK</h3><p>Demir'den Immortal'a uzanan temel koçluk programı.</p><button onclick="window.location.href='https://www.shopier.com/37863820'">Satın Al</button></div>
-    <div class="paket"><h3>BRONZE RISING PACK</h3><p>Bronz'den Immortal'a uzanan temel koçluk programı.</p><button onclick="window.location.href='https://www.shopier.com/37863851'">Satın Al</button></div>
-    <div class="paket"><h3>STEEL CORE PACK</h3><p>Gümüş'den Immortal'a uzanan temel koçluk programı.</p><button onclick="window.location.href='https://www.shopier.com/37863869'">Satın Al</button></div>
-    <div class="paket"><h3>ASCEND PACK</h3><p>Altın'den Immortal'a uzanan temel koçluk programı.</p><button onclick="window.location.href='https://www.shopier.com/37863889'">Satın Al</button></div>
-    <div class="paket"><h3>ELITE PACK</h3><p>Plat'den Immortal'a uzanan temel koçluk programı.</p><button onclick="window.location.href='https://www.shopier.com/37863908'">Satın Al</button></div>
-    <div class="paket"><h3>INTEL CORE PACK</h3><p>Diamond'den Immortal'a uzanan temel koçluk programı.</p><button onclick="window.location.href='https://www.shopier.com/37863925'">Satın Al</button></div>
-    <div class="paket"><h3>IMMORTAL MINDSET PACK</h3><p>Ascendant'den Immortal'a uzanan temel koçluk programı.</p><button onclick="window.location.href='https://www.shopier.com/37863937'">Satın Al</button></div>
+    
+    <div class="paket"><h3>INITIATE PACK</h3>
+      <ul style="text-align: left; padding-left: 20px; color: #aaa; font-size: 0.85rem;">
+        <p>Demir'den Immortal'a uzanan temel koçluk programı.</p>
+<p style="color: #aaa; font-size: 0.9rem; margin-top: 10px;">
+  Valorant'a yeni başlayanlar için özel olarak tasarlanmıştır. Temel mekanikleri kavrayamayan, 
+  sıklıkla pozisyon hatası yapan ve hedef alma konusunda zorluk yaşayan oyuncular için mükemmel başlangıç noktasıdır. 
+  Oyuna sağlam bir temel atmak isteyen herkes için birebir rehberlik içerir.
+</p>
+</ul>
+        <p class="tahmini-sure">⏱️ Tahmini süre: 4-6 hafta</p>
+        <button class="buy-button" data-link="https://www.shopier.com/37863820">Satın Al</button></div>
+    <div class="paket"><h3>BRONZE RISING PACK</h3>
+      <ul style="text-align: left; padding-left: 20px; color: #aaa; font-size: 0.85rem;">
+        <p>Bronz'dan Immortal'a uzanan temel koçluk programı.</p>
+<p style="color: #aaa; font-size: 0.9rem; margin-top: 10px;">
+  Temel bilgileri kavramış ancak oyun içi karar alma ve harita farkındalığı eksik olan oyuncular için uygundur. 
+  Bu pakette, oyunculara strateji geliştirme, rol belirleme ve kişisel hataların farkına varma becerisi kazandırılır. 
+  Bronz'dan çıkış yolunda sağlam bir rehberlik sağlar.
+</p>
+
+</ul>
+        <p class="tahmini-sure">⏱️ Tahmini süre: 3-5 hafta</p>
+<button class="buy-button" data-link="https://www.shopier.com/37863851">Satın Al</button></div>
+    <div class="paket"><h3>STEEL CORE PACK</h3>
+      <ul style="text-align: left; padding-left: 20px; color: #aaa; font-size: 0.85rem;">
+        <p>Gümüş'ten Immortal'a uzanan temel koçluk programı.</p>
+<p style="color: #aaa; font-size: 0.9rem; margin-top: 10px;">
+  Temel mekanikleri oturmuş ancak oyun bilgisi, takım uyumu ve karar verme becerilerinde eksiklik yaşayan oyuncular için idealdir.
+  Bu pakette, oyunculara sık yapılan hataları analiz etme, doğru iletişim kurma ve mini görevlerle oyun içinde aktif rol alma becerileri kazandırılır.
+  Gümüş seviyesinden sıyrılıp daha bilinçli bir oyun tarzına geçişi hedefler.
+</p>
+
+</ul>
+        <p class="tahmini-sure">⏱️ Tahmini süre: 3-4 hafta</p>
+<button class="buy-button" data-link="https://www.shopier.com/37863869">Satın Al</button></div>
+      <div class="paket"><h3>ASCEND PACK</h3>
+      <ul style="text-align: left; padding-left: 20px; color: #aaa; font-size: 0.85rem;">
+        <p>Altın'dan Immortal'a uzanan temel koçluk programı.</p>
+<p style="color: #aaa; font-size: 0.9rem; margin-top: 10px;">
+  Altın seviyesinden çıkmak isteyen oyuncular için tasarlanmış bu paket, oyun içi rol dağılımı, ekonomik kontrol, harita bilgisi ve bireysel karar kalitesini artırmaya odaklanır.
+  Hedef, oyunu sadece mekanik olarak değil stratejik açıdan da okuyabilen bir oyuncuya dönüşmektir.
+  Düzenli koçluk ve analizlerle oyuncunun oyun görüşü geliştirilir.
+</p>
+
+</ul>
+        <p class="tahmini-sure">⏱️ Tahmini süre: 2-3 hafta</p>
+<button class="buy-button" data-link="https://www.shopier.com/37863889">Satın Al</button></div>
+    <div class="paket"><h3>ELITE PACK</h3>
+      <ul style="text-align: left; padding-left: 20px; color: #aaa; font-size: 0.85rem;">
+        <p>Plat'tan Immortal'a uzanan temel koçluk programı.</p>
+<p style="color: #aaa; font-size: 0.9rem; margin-top: 10px;">
+  Platin seviyesindeki oyuncular için hazırlanmış bu paket, takım koordinasyonu, giriş-çıkış zamanlaması, mikro oyun detayları ve rakip psikolojisi üzerine odaklanır.
+  Oyun içinde istikrarlı etki bırakmak isteyen oyuncular için; rol uzmanlığı, entry frag alma teknikleri ve clutch senaryoları üzerine yoğunlaşılır.
+  Bu seviyede, “oyunu taşıyan oyuncu” olmanız hedeflenir.
+</p>
+
+</ul>
+        <p class="tahmini-sure">⏱️ Tahmini süre: 1-2 hafta</p>
+<button class="buy-button" data-link="https://www.shopier.com/37863908">Satın Al</button></div>
+
+    <div class="paket"><h3>INTEL CORE PACK</h3>
+      <ul style="text-align: left; padding-left: 20px; color: #aaa; font-size: 0.85rem;">
+        <p>Elmas'tan Immortal'a uzanan temel koçluk programı.</p>
+<p style="color: #aaa; font-size: 0.9rem; margin-top: 10px;">
+  Diamond seviyesinde oyun artık mekaniklerden çok düşünce gücüne dayanır. Bu pakette oyun okuma, rakip kalıplarını analiz etme ve maçlara stratejik yön verme gibi ileri düzey beceriler kazandırılır.
+  Koçlarımızla birlikte harita kontrolü, takım sinerjisi ve oyun temposu gibi detaylar üzerinde derinlemesine çalışırsınız.
+  Oyunun "beyni" olma yolunda atacağınız adımlarda birebir destek sağlanır.
+</p>
+
+</ul>
+        <p class="tahmini-sure">⏱️ Tahmini süre: 1-2 hafta</p>
+<button class="buy-button" data-link="https://www.shopier.com/37863925">Satın Al</button></div>
+    <div class="paket"><h3>IMMORTAL MINDSET PACK</h3>
+      <ul style="text-align: left; padding-left: 20px; color: #aaa; font-size: 0.85rem;">
+        <p>Yücelik'ten Immortal'a uzanan temel koçluk programı.</p>
+<p style="color: #aaa; font-size: 0.9rem; margin-top: 10px;">
+  Artık oyunun en üst yüzdesindesin ve bu seviyede farkı yaratan şey mental dayanıklılık, odak ve yüksek seviye oyun anlayışıdır.
+  Bu pakette sana, Immortal oyuncuların sahip olduğu oyun disiplini, karar verme algoritmaları ve iletişim kalitesi kazandırılır.
+  Her maç öncesi/sonrası detaylı değerlendirme, birebir seanslar ve performans takibiyle hedefinize birlikte ulaşırız.
+</p>
+
+</ul>
+        <p class="tahmini-sure">⏱️ Tahmini süre: 5-7 gün</p>
+<button class="buy-button" data-link="https://www.shopier.com/37863937">Satın Al</button></div>
   </section>
+
+  <section style="text-align: center; padding: 3rem 1rem; background-color: #111; border-radius: 12px; margin-top: 4rem;">
+  <h2 style="color: #e63946; font-size: 2rem; margin-bottom: 1rem;">Hâlâ Kararsız mısın?</h2>
+  <p style="color: #ccc; font-size: 1rem; margin-bottom: 1.5rem;">
+    Hemen bizimle iletişime geç, sana en uygun koçluk paketini birlikte seçelim!
+  </p>
+  <a href="https://www.instagram.com/direct/t/17842363329525749"
+     style="background-color: #e63946; padding: 12px 24px; border-radius: 8px; color: white; text-decoration: none; font-weight: bold; transition: background-color 0.3s;">
+    Bize Ulaş
+  </a>
+</section>
+
+<!-- Lucide icon kütüphanesi (HEAD içinde eklenmeli) -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<section style="padding: 4rem 2rem; background-color: #111; color: #fff; text-align: center;">
+  <h2 style="color: #e63946; margin-bottom: 2rem;">Koçluk Hizmetimize Neden Güvenmelisin?</h2>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+
+    <!-- Tecrübeli Koçlar -->
+    <div style="background: #1a1a1a; padding: 2rem; border-radius: 12px; width: 250px;">
+      <i data-lucide="graduation-cap" style="color: #e63946;" width="36" height="36"></i>
+      <h3 style="margin-top: 1rem;">Tecrübeli Koçlar</h3>
+      <p style="color: #ccc;">Immortal+ seviye, birebir eğitim tecrübesine sahip eğitmen kadrosu.</p>
+    </div>
+
+    <!-- Rütbe Odaklı Gelişim -->
+    <div style="background: #1a1a1a; padding: 2rem; border-radius: 12px; width: 250px;">
+      <i data-lucide="bar-chart-3" style="color: #e63946;" width="36" height="36"></i>
+      <h3 style="margin-top: 1rem;">Rütbe Odaklı Gelişim</h3>
+      <p style="color: #ccc;">Kişiye özel analiz ve eğitim programı ile rütbe atlamayı garantile.</p>
+    </div>
+
+    <!-- Taktiksel Bilgi -->
+    <div style="background: #1a1a1a; padding: 2rem; border-radius: 12px; width: 250px;">
+      <i data-lucide="brain" style="color: #e63946;" width="36" height="36"></i>
+      <h3 style="margin-top: 1rem;">Taktiksel Bilgi</h3>
+      <p style="color: #ccc;">Harita kontrolü, oyun içi kararlar, ekonomi yönetimi gibi detaylı içerikler.</p>
+    </div>
+
+    <!-- %100 Memnuniyet -->
+    <div style="background: #1a1a1a; padding: 2rem; border-radius: 12px; width: 250px;">
+      <i data-lucide="shield-check" style="color: #e63946;" width="36" height="36"></i>
+      <h3 style="margin-top: 1rem;">%100 Memnuniyet</h3>
+      <p style="color: #ccc;">200+ öğrenciyle, yüksek memnuniyet oranı ve başarıya ulaşan hikayeler.</p>
+    </div>
+
+  </div>
+    <!-- REFERANSLAR -->
+  <h3 style="color: white; margin-bottom: 1rem;">YORUMLAR</h3>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
+    <div style="background-color: #1a1a1a; padding: 1rem; border-radius: 10px; max-width: 300px; color: white;">
+      <p style="font-style: italic;">Koçluk süreci çok verimliydi, VOD analizleri sayesinde çok şey öğrendim!</p>
+      <strong>@fadepeek</strong> | Gold 2 → Immo 1
+    </div>
+    <div style="background-color: #1a1a1a; padding: 1rem; border-radius: 10px; max-width: 300px; color: white;">
+      <p style="font-style: italic;">Aim dışında oyun bilgimi geliştirmem gerektiğini ilk kez burada fark ettim.</p>
+      <strong>@sovalife</strong> | Silver 1 → Immo 1
+    </div>
+    <div style="background-color: #1a1a1a; padding: 1rem; border-radius: 10px; max-width: 300px; color: white;">
+      <p style="font-style: italic;">Harita kontrolü, retake planı, ekonomi yönetimi... hepsi tek tek öğretildi.</p>
+      <strong>@killjoymane</strong> | Bronze 3 → Immo 1
+    </div>
+    <div style="background-color: #1a1a1a; padding: 1rem; border-radius: 10px; max-width: 300px; color: white;">
+      <p style="font-style: italic;">Rank atlamaktan çok daha fazlasını öğrendim. Tavsiye ederim.</p>
+      <strong>@raynviper</strong> | Asc 1 → Immo 1
+    </div>
+</section>
+
+<!-- Lucide ikonları başlatma -->
+<script>
+  lucide.createIcons();
+</script>
+
 
 <footer class="footer">
   <div class="footer-container">
@@ -252,14 +513,14 @@
     </div>
     <div class="footer-column">
       <h4>Boost Servisleri</h4>
-      <a href="#">Elo Boost</a>
-      <a href="#">Duo Boost</a>
+      <a href="elo-boost.html">Elo Boost</a>
       <a href="#">Win Boost</a>
       <a href="#">İlk 5 Maç</a>
+      <a href="immortal-boost.html">Immortal Boost</a>
     </div>
     <div class="footer-column">
       <h4>Koçluk Servisleri</h4>
-      <a href="#">Demirden Immortal'a Koçluk</a>
+      <a href="elo-boost.html">Demirden Immortal'a Koçluk</a>
       <a href="#">Aylık Koçluk</a>
       <a href="#">Haftalık Koçluk</a>
       <a href="#">Tek Seans Koçluk</a>
@@ -275,7 +536,50 @@
     <p>&copy; 2025 Rithiavalo. Tüm hakları saklıdır.</p>
   </div>
 </footer>
-
-
+<!-- Uyarı Popup -->
+<div id="popup" class="popup-container">
+  <div class="popup-box">
+    <h3>⚠️ Önemli Bilgilendirme</h3>
+    <p>
+      Shopier'e yönlendirileceksiniz. Lütfen koçluk paket türünüzü doğru seçtiğinizden emin olun:
+    </p>
+    <ul>
+      <li><strong>🎥 Analiz:</strong> 1 video gönderimi + PDF analiz.</li>
+      <li><strong>🎯 Sınırlı Paket:</strong> 1 video analizi + 1 canlı koçluk (60 dk).</li>
+      <li><strong>🔥 Tam Paket (Önerilen):</strong> Günlük birebir koçluk + mental destek + özel Discord.</li>
+    </ul>
+    <div class="popup-buttons">
+      <button id="cancelBtn">İptal</button>
+      <button id="confirmBtn">Devam Et</button>
+    </div>
+  </div>
+</div>
 </body>
+<script>
+  const popup = document.getElementById("popup");
+  const confirmBtn = document.getElementById("confirmBtn");
+  const cancelBtn = document.getElementById("cancelBtn");
+
+  let targetLink = "";
+
+  document.querySelectorAll(".buy-button").forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.preventDefault();
+      targetLink = btn.getAttribute("data-link");
+      popup.style.display = "flex";
+    });
+  });
+
+  cancelBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+    targetLink = "";
+  });
+
+  confirmBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+    if (targetLink) {
+      window.open(targetLink, "_blank");
+    }
+  });
+</script>
 </html>
