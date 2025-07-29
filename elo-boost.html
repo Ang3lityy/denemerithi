@@ -132,15 +132,17 @@
   background-color: #2b2b2b;         /* Daha koyu ama göz yormayan zemin */
   color: #ff3c3c;                    /* Uyumlu kırmızı ton */
   font-weight: 600;
-  padding: 10px 20px;
-  border-radius: 12px;
+  padding: 10px 15px;
+  border-radius: 8px;
   display: inline-block;
   margin-bottom: 10px;
-  border: 1px solid #ff3c3c;
+  border: 2px solid #ff3c3c;
   transition: background-color 0.3s, transform 0.2s;
   font-size: 16px;
   text-align: center;
-   width: 80%;
+  width: 80%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .price-box:hover {
@@ -151,6 +153,7 @@
 
     .boost-box h3 {
       margin-bottom: 1rem;
+      
     }
     .order-btn {
       margin-top: 1rem;
@@ -361,6 +364,7 @@ select {
 nav {
     flex-direction: column;
     align-items: center;
+    
   }
 
   nav a {
@@ -416,6 +420,7 @@ nav {
   color: #ff3c3c;
   margin-top: 0;
   margin-bottom: 4px;
+  
 }
 .guven-wrapper {
     display: flex;
@@ -580,6 +585,7 @@ nav {
     padding: 5px 0;
   }
 }
+
   </style>
 </head>
 <body>
@@ -708,7 +714,7 @@ nav {
     Toplam Fiyat: <span id="priceValue">149₺</span>
   </div>
 
-  <button class="order-btn">Yükselmeye Başla</button>
+  <button id="orderButton" class="order-btn">Yükselmeye Başla</button>
 </div>
 <section style="text-align: center; padding: 3rem 1rem; background-color: #111; border-radius: 12px; margin-top: 4rem;">
   <h2 style="color: #e63946; font-size: 2rem; margin-bottom: 1rem;">Hâlâ Kararsız mısın?</h2>
@@ -924,7 +930,29 @@ function updateBoostDuration() {
 
   durationElement.innerText = durationText;
 }
+document.getElementById("orderButton").addEventListener("click", function () {
+    const from = document.getElementById("current-rank").value;
+    const to = document.getElementById("desired-rank").value;
+
+    const key = `${from} - ${to}`;
+    const links = {
+      "Demir - Bronz": "https://www.shopier.com/36943866",
+      "Bronz - Gümüş": "https://www.shopier.com/37006630",
+      "Gümüş - Altın": "https://www.shopier.com/37006825",
+      "Altın - Platin": "https://www.shopier.com/37007324",
+      "Platin - Elmas": "https://www.shopier.com/37007375",
+      "Elmas - Ascendant": "https://www.shopier.com/37007558",
+      "Ascendant - Immortal": "https://www.shopier.com/37007599"
+    };
+
+    if (links[key]) {
+      window.location.href = links[key];
+    } else {
+      alert("Bu lig geçişi için link mevcut değil.");
+    }
+  });
 </script>
+
 
 <script>
   function toggleMenu() {
