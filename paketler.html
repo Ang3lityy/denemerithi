@@ -299,6 +299,91 @@
   color: #ccc;
   font-style: italic;
 }
+
+header {
+  position: relative;
+  background: #000;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #1a1a1a;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Mobil görünüm */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #111;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    width: 200px;
+    z-index: 999;
+    transition: transform 0.3s ease;
+  }
+
+  .mobile-hidden {
+    display: none;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .dropdown-content {
+    position: relative;
+    background-color: #1e1e1e;
+  }
+}
+@media (max-width: 768px) {
+  .dropdown-content {
+    display: none;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+  }
+
+  .dropdown-content a {
+    padding: 5px 0;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -309,10 +394,11 @@
     <span>RithiaValo</span>
   </a>
 </div>
-    <nav>
+  <div class="menu-toggle" onclick="toggleMenu()">☰ Menü</div>
+  <nav id="mobileMenu" class="mobile-hidden">
       <a href="index.html"><i class="fa-solid fa-house"></i> Anasayfa</a>
       <div class="dropdown">
-        <a href="#"><i class="fa-solid fa-gamepad"></i> Valorant ▼</a>
+  <a href="javascript:void(0)" onclick="toggleDropdown()"><i class="fa-solid fa-gamepad"></i> Valorant ▼</a>
         <div class="dropdown-content">
           <a href="elo-boost.html">Elo Boost</a>
           <a href="#">İlk 5 Maç</a>
@@ -582,4 +668,23 @@
     }
   });
 </script>
+
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("mobile-hidden");
+  }
+    function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("mobile-hidden");
+  }
+
+  function toggleDropdown() {
+    const dropdown = document.getElementById("valorantDropdown");
+    dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+  }
+</script>
+
+
 </html>
