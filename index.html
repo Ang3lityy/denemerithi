@@ -303,32 +303,117 @@ align-items: center;
     transform: translateY(0px);
   }
 }
+header {
+  position: relative;
+  background: #000;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #1a1a1a;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Mobil görünüm */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #111;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    width: 200px;
+    z-index: 999;
+    transition: transform 0.3s ease;
+  }
+
+  .mobile-hidden {
+    display: none;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .dropdown-content {
+    position: relative;
+    background-color: #1e1e1e;
+  }
+}
+@media (max-width: 768px) {
+  .dropdown-content {
+    display: none;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+  }
+
+  .dropdown-content a {
+    padding: 5px 0;
+  }
+}
   </style>
 </head>
 <body>
 
-  <header>
-<div class="logo-area">
-  <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
-    <img src="logo.png" alt="Logo" />
-    <span>RithiaValo</span>
-  </a>
+<header>
+  <div class="logo-area">
+    <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none;">
+      <img src="logo.png" alt="Logo" />
+      <span>RithiaValo</span>
+    </a>
+  </div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰ Menü</div>
+  <nav id="mobileMenu" class="mobile-hidden">
+<div class="dropdown">
+  <a href="javascript:void(0)" onclick="toggleDropdown()"><i class="fa-solid fa-gamepad"></i> Valorant ▼</a>
+  <div class="dropdown-content" id="valorantDropdown">
+    <a href="elo-boost.html">Elo Boost</a>
+    <a href="#">İlk 5 Maç</a>
+    <a href="#">Win Boost</a>
+    <a href="immortal-boost.html">Immortal Boost</a>
+  </div>
 </div>
-    <nav>
-      <div class="dropdown">
-        <a href="#"><i class="fa-solid fa-gamepad"></i> Valorant ▼</a>
-        <div class="dropdown-content">
-          <a href="elo-boost.html">Elo Boost</a>
-          <a href="#">İlk 5 Maç</a>
-          <a href="#">Win Boost</a>
-          <a href="immortal-boost.html">Immortal Boost</a>
-        </div>
-      </div>
-      <a href="hakkimizda.html"><i class="fa-solid fa-user"></i> Hakkımızda</a>
-      <a href="https://instagram.com/rithiavalo" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
-      <a href="https://discord.gg/ydrnnrVQ7Y" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
-    </nav>
-  </header>
+    <a href="hakkimizda.html"><i class="fa-solid fa-user"></i> Hakkımızda</a>
+    <a href="https://instagram.com/rithiavalo" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+    <a href="https://discord.gg/ydrnnrVQ7Y" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
+  </nav>
+</header>
+
 
 <section class="hero-section">
   <a href="index.html">
@@ -339,11 +424,12 @@ align-items: center;
     <button class="cta-button" onclick="window.location.href='paketler.html'">Koçluk Paketlerini İncele</button>
   </div>
 
+
   <section class="features">
     <div class="feature">
       <i class="fa-solid fa-trophy"></i>
       <h3>Profesyonel Kadro</h3>
-      <p>Tüm Rithiavalo hizmetleri, Radiant & Pro oyuncular tarafından profesyonelce sağlanır.</p>
+      <p>Tüm RithiaValo hizmetleri, Radiant & Pro oyuncular tarafından profesyonelce sağlanır.</p>
     </div>
     <div class="feature">
       <i class="fa-solid fa-wallet"></i>
@@ -398,6 +484,23 @@ align-items: center;
     <p>&copy; 2025 Rithiavalo. Tüm hakları saklıdır.</p>
   </div>
 </footer>
+
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("mobile-hidden");
+  }
+    function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    menu.classList.toggle("mobile-hidden");
+  }
+
+  function toggleDropdown() {
+    const dropdown = document.getElementById("valorantDropdown");
+    dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+  }
+</script>
 
 
 </body>
